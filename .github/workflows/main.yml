@@ -1,0 +1,64 @@
+name: Deploy slides
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Generate teaching.md (denylist)
+        shell: bash
+        run: |
+          set -euo pipefail
+          SKIP_RE='^(reveal|reveal\.js|\.git|\.github|node_modules|vendor|assets|theme|dist|plugin|scripts|tools|test|tests|ci)$'
+          {
+            echo "## Courses"
+            echo
+            for d in */ ; do
+              [ -f "${d}index.html" ] || continue
+              name="${d%/}"
+              if [[ "$name" =~ $SKIP_RE ]] || [[ "$name" == _* ]] || [[ "$name" == .* ]]; then
+                continue
+              fi
+              title="$(grep -m1 -i '<title>' "${d}index.html" | sed -E 's:.*<title>(.*)</title>.*:\1:i' || true)"
+              [ -n "$title" ] || title="$name"
+              echo "- [${title}](${name}/)"
+            done
+            echo
+          } > teaching.md
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
