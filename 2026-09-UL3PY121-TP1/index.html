@@ -131,6 +131,14 @@
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX],
         });
 
+        // Figures interactives : <div class="interactive" data-src="figures/…js"></div>
+        Reveal.on('ready', () => {
+            document.querySelectorAll('.interactive[data-src]').forEach(async el => {
+                const module = await import('./' + el.dataset.src);
+                module.default(el);
+            });
+        });
+
         Reveal.on('ready', () => {
             document.querySelectorAll('.reveal .slides section').forEach(slide => {
                 if (slide.querySelector('section')) return; // skip parent sections

@@ -1,14 +1,13 @@
 """Combinaison de deux incertitudes indépendantes : u(z) = sqrt(u(x)^2 + u(y)^2).
 
 Génère propagation_somme.svg : distributions gaussiennes de x (en haut) et y (à droite),
-densité jointe au centre, et u(z) radial jusqu'à l'ellipse à 1 sigma.
+densité jointe au centre, barres d'erreur u(x) et u(y), et u(z) radial jusqu'au point (u(x), u(y)).
 """
 
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Ellipse
 
 BLEU = "#2f6fb3"
 BLACK = "#000000"
@@ -31,16 +30,18 @@ ax_y = fig.add_subplot(gs[1, 1], sharey=ax)
 t = np.linspace(-L, L, 400)
 X, Y = np.meshgrid(t, t)
 ax.pcolormesh(X, Y, gauss(X, ux) * gauss(Y, uy), cmap="Blues", vmax=1.8, shading="auto", rasterized=True)
-ax.add_patch(Ellipse((0, 0), 2 * ux, 2 * uy, fill=False, ls="--", lw=1, color=BLEU))
 ax.set_xlim(-L, L)
 ax.set_ylim(-L, L)
 
-# u(z) radial, du centre jusqu'à l'ellipse, dans la direction du point (u(x), u(y))
+# Rappel de u(x) et u(y) au centre
 arrow = dict(arrowstyle="<->", lw=1.5, color="k", shrinkA=0, shrinkB=0)
-zx, zy = ux / np.sqrt(2), uy / np.sqrt(2)  # point de l'ellipse (x/ux)² + (y/uy)² = 1
+ax.errorbar(0, 0, xerr=ux, yerr=uy, fmt="none", ecolor=BLACK, elinewidth=1.5, capsize=6, capthick=1.5)
+
+# u(z) radial, du centre jusqu'au point (u(x), u(y)) : sa longueur vaut sqrt(u(x)² + u(y)²)
+zx, zy = ux, uy
 ax.annotate("", (zx, zy), (0, 0),
             arrowprops=dict(arrowstyle="-|>", lw=3, color=BLACK, mutation_scale=20, shrinkA=0, shrinkB=0))
-ax.text(zx / 2 - 0.12, zy / 2 + 0.08, r"$u(z)$", color=BLACK, fontsize=22, ha="right", va="center")
+ax.text(zx / 2 - 0.13 * uy / uz, zy / 2 + 0.13 * ux / uz, r"$u(z)$", color=BLACK, fontsize=22, ha="center", va="bottom")
 
 ax.set_xticks([])
 ax.set_yticks([])

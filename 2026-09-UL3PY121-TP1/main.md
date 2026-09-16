@@ -179,6 +179,16 @@ Pour la notice, la précision constructeur est la demi-largeur a de la loi unifo
 
 ---
 
+## Propager une incertitude
+
+<div class="interactive" data-src="figures/propagation_demo.js"></div>
+
+Note:
+L'intervalle x ± u(x) est transporté par f : sa largeur est multipliée par la pente de f.
+Curseur : plus f est raide, plus l'incertitude sur f(x) est grande.
+
+---
+
 ## Propager une incertitude : une seule variable
 
 $G = f(x)$ : on linéarise $f$ autour de $x_m$
