@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 530" width="1040" height="530" font-family="Century Gothic, Inter, system-ui, sans-serif">
+  <path d="M 123.0 40 Q 55.0 140 123.0 240 L 137.0 240 Q 205.0 140 137.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <path d="M 278.0 40 Q 278.0 140 278.0 240 L 292.0 240 Q 402.0 140 292.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <path d="M 425.0 40 Q 469.0 140 425.0 240 L 455.0 240 Q 551.0 140 455.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <path d="M 605.0 40 Q 661.0 140 605.0 240 L 675.0 240 Q 619.0 140 675.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <path d="M 760.0 40 Q 760.0 140 760.0 240 L 830.0 240 Q 726.0 140 830.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <path d="M 921.0 40 Q 877.0 140 921.0 240 L 979.0 240 Q 883.0 140 979.0 40 Z" fill="#a9c3e0" stroke="#5b7fa6" stroke-width="2.5" />
+  <text x="130" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">1</text>
+  <text x="285" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">2</text>
+  <text x="440" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">3</text>
+  <text x="640" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">4</text>
+  <text x="795" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">5</text>
+  <text x="950" y="310" text-anchor="middle" font-size="34" font-weight="bold" fill="#e2571e">6</text>
+  <text x="60" y="400" font-size="30" font-weight="bold">Lentilles convergentes</text>
+  <text x="60" y="445" font-size="27">1 - lentille biconvexe</text>
+  <text x="60" y="487" font-size="27">2 - lentille plan-convexe</text>
+  <text x="60" y="529" font-size="27">3 - ménisque convergent</text>
+  <text x="570" y="400" font-size="30" font-weight="bold">Lentilles divergentes</text>
+  <text x="570" y="445" font-size="27">4 - lentille biconcave</text>
+  <text x="570" y="487" font-size="27">5 - lentille plan-concave</text>
+  <text x="570" y="529" font-size="27">6 - ménisque divergent</text>
+</svg>

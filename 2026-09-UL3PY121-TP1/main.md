@@ -327,3 +327,122 @@ Attention à polyfit : sans l'option w=1/u_y, l'ajustement n'est pas pondéré.
 - Vocabulaire précis : pas « assez faible », mais « $a$ petit devant $b$ »
 
 $\to$ *La mesure en physique expérimentale* sur Moodle
+
+---
+
+# TP1 : formation des images
+
+---
+
+<img src="figures/tp1_sources.png" style="width: 95%; display: block; margin: auto;" />
+
+Note:
+Figure 1.1 : source isotrope, simulation de source ponctuelle (lampe + condenseur + trou), faisceau parallèle.
+
+---
+
+<img src="figures/tp1_types_lentilles.svg" style="width: 85%; display: block; margin: auto;" />
+
+Note:
+Figure 1.2 : lentilles convergentes (bords plus minces que le centre) et divergentes.
+
+---
+
+<img src="figures/tp1_image_reelle_virtuelle.png" style="width: 95%; display: block; margin: auto;" />
+
+Note:
+Figure 1.3 : un objet réel AB a une image réelle (a) ou virtuelle (b) selon sa position par rapport à la lentille.
+
+---
+
+## Conditions de Gauss
+
+- rayons **paraxiaux** : proches de l'axe optique
+- rayons **peu inclinés** par rapport à l'axe optique
+
+⟹ **stigmatisme** et **aplanétisme** approchés
+
+Note:
+- Stigmatisme : à un point objet correspond un unique point image. Les deux points sont dits conjugués.
+- Aplanétisme : deux points objets d'un même plan orthogonal à l'axe optique ont leurs images dans un même plan orthogonal à l'axe.
+- Rigoureux pour très peu de systèmes : le miroir plan (pour tout point de l'espace), le miroir parabolique (entre l'infini et son foyer, d'où son usage en astronomie).
+- Hors des conditions de Gauss : aberrations géométriques (voir plus loin).
+
+---
+
+## Lentilles minces
+
+- épaisseur **négligeable** devant les rayons de courbure
+- rayon passant par le centre $O$ : **non dévié**
+- $F$ et $F'$ **symétriques** par rapport à $O$
+- distance focale $f'$, vergence $\delta = 1/f'$ en dioptries
+- $f' \gt 0$ convergente, $f' \lt 0$ divergente
+
+Note:
+La distance focale est une grandeur algébrique : f' = OF' (barre), positive pour une lentille convergente, négative pour une divergente.
+Une lentille mince est entièrement caractérisée par f' (ou par sa vergence).
+
+---
+
+<img src="figures/tp1_rayons_particuliers.png" style="width: 75%; display: block; margin: auto;" />
+
+<br>
+
+- Descartes $$ \frac{1}{\overline{OA'}} - \frac{1}{\overline{OA}} = \frac{1}{f'} $$
+- Newton $$ \overline{FA} \cdot \overline{F'A'} = -f'^2 $$
+
+Note:
+Figure 1.4 : les trois rayons particuliers. Deux suffisent pour construire l'image.
+1. les rayons passant par le centre O ne sont pas déviés ;
+2. les rayons passant par F émergent parallèlement à l'axe optique ;
+3. les rayons arrivant parallèlement à l'axe optique émergent en pointant vers F'.
+Un objet à l'infini a son image dans le plan focal image, et réciproquement.
+Attention : F et F' ne sont pas conjugués l'un de l'autre.
+
+---
+
+<img src="figures/tp1_distances.png" style="width: 60%; display: block; margin: auto;" />
+
+$$ D_1^2 - D D_1 + D f' = 0 \qquad \Delta = D^2 - 4 f' D $$
+
+- $D \lt 4f'$ : aucune position de la lentille ne donne d'image sur l'écran
+- $D = 4f'$ : une seule position, à $2f'$ de l'objet et de l'écran (Silbermann)
+- $D \gt 4f'$ : deux positions possibles (Bessel)
+
+Note:
+Figure 1.5 : distances objet-lentille D₁, lentille-image D₂ et objet-écran D.
+À D fixée, on écrit D₁ = D − D₂ dans la relation de conjugaison : c'est une équation du second degré en D₁.
+Dans la configuration 4f', le grandissement vaut 1 en valeur absolue.
+
+---
+
+<img src="figures/tp1_aberrations.png" style="width: 95%; display: block; margin: auto;" />
+
+Note:
+Figure 1.6 : (a) Lentille convergente éclairée par une onde plane sur toute sa surface. Plus les rayons sont loin de l'axe optique et arrivent sur les bords de la lentille, plus ils convergent proches de la lentille. Pour avoir un stigmatisme approché, il faut se restreindre aux rayons vérifiant les conditions de Gauss (en bleu traits pleins). (b) Un faisceau de lumière blanche éclaire une lentille : les rayons de différentes longueurs d'onde convergent en des foyers différents.
+
+---
+
+<img src="figures/tp1_lunette.png" style="width: 80%; display: block; margin: auto;" />
+
+$$ G = \frac{\alpha'}{\alpha} $$
+
+Note:
+Figure 1.7 : lunette astronomique, système afocal. Le foyer image de l'objectif et le foyer objet de l'oculaire sont confondus.
+
+---
+
+<img src="figures/tp1_oeil.svg" style="height: 12em; display: block; margin: auto;" />
+
+Note:
+Figure 1.8 : coupe de l'œil. Le cristallin projette l'image sur la rétine ; accommoder change sa distance focale.
+
+---
+
+<div class="interactive" data-src="figures/oeil_demo.js"></div>
+
+Note:
+Curseurs : position de l'objet et distance focale du cristallin.
+La tache orange sur la rétine est l'étendue des rayons : elle se réduit à un point quand l'image se forme exactement sur la rétine, c'est l'accommodation.
+Objet plus près que le foyer : les rayons sortent divergents, l'image est virtuelle (prolongements en pointillés) et rien ne se forme sur la rétine.
+
